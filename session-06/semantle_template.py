@@ -5,16 +5,20 @@
 import os, random
 import numpy as np
 import gradio as gr
-from dotenv import load_dotenv
-from openai import AzureOpenAI
+from dotenv import load_dotenv, find_dotenv
+from openai import OpenAI
 
-load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
-client = AzureOpenAI(
-    api_key=os.getenv("AZURE_OPENAI_KEY"),
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION", "2024-06-01"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+load_dotenv(find_dotenv(usecwd=True), override=True)
+
+APIM_BASE_URL = os.getenv("APIM_BASE_URL")
+APIM_KEY = os.getenv("APIM_KEY")
+EMBED_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
+
+client = OpenAI(
+    base_url=f"{APIM_BASE_URL}/{EMBED_MODEL}/",
+    api_key="placeholder",
+    default_headers={"api-key": APIM_KEY},
 )
-EMBED_MODEL = os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "text-embedding-ada-002")
 
 # 👇 정답 단어 목록 — 자유롭게 수정하세요!
 WORD_LISTS = {
@@ -100,4 +104,4 @@ with gr.Blocks(title="🧩 꼬맨틀", theme=gr.themes.Soft()) as demo:
     new_btn.click(on_new, [diff], [result, history, word_input])
 
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch(server_name="0.0.0.0", server_port=7860)

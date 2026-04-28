@@ -21,7 +21,8 @@
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "forwardPorts": [7860, 8888],
   "portsAttributes": {
-    "7860": { "label": "Gradio App", "onAutoForward": "openBrowser" }
+    "7860": { "label": "Gradio App", "onAutoForward": "openBrowser" },
+    "8888": { "label": "Jupyter", "onAutoForward": "ignore" }
   },
   "remoteUser": "vscode"
 }

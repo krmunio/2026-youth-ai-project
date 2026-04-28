@@ -19,7 +19,7 @@ sudo apt-get update -qq && sudo apt-get install -y -qq fonts-nanum > /dev/null 2
 # 4) .env 파일 생성 (없을 경우)
 if [ ! -f .env ]; then
     cp .env.example .env
-    echo "⚠️  .env 파일이 생성되었습니다. APIM_SUBSCRIPTION_KEY를 설정해주세요!"
+    echo "⚠️  .env 파일이 생성되었습니다. APIM_BASE_URL과 APIM_KEY를 설정해주세요!"
 fi
 
 echo "✅ 환경 세팅 완료!"

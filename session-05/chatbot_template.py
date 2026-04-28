@@ -5,19 +5,20 @@
 import os
 import gradio as gr
 from datetime import datetime
-from dotenv import load_dotenv
-from openai import AzureOpenAI
+from dotenv import load_dotenv, find_dotenv
+from openai import OpenAI
 
-load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
+load_dotenv(find_dotenv(usecwd=True), override=True)
 
-api_key = os.getenv("APIM_SUBSCRIPTION_KEY") or os.getenv("AZURE_OPENAI_KEY")
-client = AzureOpenAI(
-    api_key=api_key,
-    api_version=os.getenv("AZURE_OPENAI_API_VERSION", "2024-12-01-preview"),
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    default_headers={"Ocp-Apim-Subscription-Key": api_key},
+APIM_BASE_URL = os.getenv("APIM_BASE_URL")
+APIM_KEY = os.getenv("APIM_KEY")
+MODEL = os.getenv("CHAT_MODEL", "gpt-5.4")
+
+client = OpenAI(
+    base_url=f"{APIM_BASE_URL}/{MODEL}/",
+    api_key="placeholder",
+    default_headers={"api-key": APIM_KEY},
 )
-MODEL = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4.1-mini")
 
 # ============================================================
 # 👇 여기를 수정하세요!
@@ -46,7 +47,7 @@ def respond(message, history):
     messages.append({"role": "user", "content": message})
     try:
         response = client.chat.completions.create(
-            model=MODEL, messages=messages, temperature=0.8, max_tokens=800
+            model=MODEL, messages=messages, temperature=0.8, max_completion_tokens=800
         )
         reply = response.choices[0].message.content
         chat_log.append({"time": datetime.now().isoformat(), "user": message, "bot": reply})
@@ -62,4 +63,4 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
     )
 
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch(server_name="0.0.0.0", server_port=7860)
