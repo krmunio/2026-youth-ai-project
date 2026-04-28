@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=== MAF AI Class 2026 환경 세팅 ==="
+echo "=== 2026 유스 AI 프로젝트 환경 세팅 ==="
 
 # 1) uv 설치
 echo "📦 uv 설치 중..."
@@ -19,7 +19,7 @@ sudo apt-get update -qq && sudo apt-get install -y -qq fonts-nanum > /dev/null 2
 # 4) .env 파일 생성 (없을 경우)
 if [ ! -f .env ]; then
     cp .env.example .env
-    echo "⚠️  .env 파일이 생성되었습니다. APIM_SUBSCRIPTION_KEY를 설정해주세요!"
+    echo "⚠️  .env 파일이 생성되었습니다. API_KEY를 설정해주세요!"
 fi
 
 echo "✅ 환경 세팅 완료!"

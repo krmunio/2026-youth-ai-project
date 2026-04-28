@@ -1,0 +1,20 @@
+[project]
+name = "2026-youth-ai-project"
+version = "0.1.0"
+description = "2026 유스 AI 프로젝트 - 청소년을 위한 AI 교육 커리큘럼"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.7",
+    "openai>=1.0",
+    "python-dotenv>=1.0",
+    "ipykernel>=6.0",
+    "gradio>=6.12.0",
+    "chromadb>=1.5.8",
+    "tiktoken>=0.12.0",
+    "numpy>=2.2.6",
+    "pandas>=2.3.3",
+    "requests>=2.33.1",
+    "beautifulsoup4>=4.14.3",
+    "python-dotenv",
+    "scikit-learn",
+]

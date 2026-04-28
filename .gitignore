@@ -4,10 +4,25 @@ __pycache__/
 build/
 dist/
 wheels/
-*.egg-info
+*.egg-info/
 
 # Virtual environments
-.venv
+.venv/
 
 # Environment variables
 .env
+**/.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+chroma_db/
+*.db
+
+# Gradio
+.gradio/
+
+# Windows artifacts (NTFS alternate data streams / Endpoint DLP)
+*:sec.endpointdlp
+*:Zone.Identifier

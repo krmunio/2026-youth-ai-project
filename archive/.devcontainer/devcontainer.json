@@ -1,5 +1,5 @@
 {
-  "name": "MAF AI Class 2026",
+  "name": "2026-youth-ai-project",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {}
@@ -13,15 +13,11 @@
         "GitHub.copilot-chat"
       ],
       "settings": {
-        "python.defaultInterpreterPath": ".venv/bin/python",
-        "jupyter.askForKernelRestart": false
+        "python.defaultInterpreterPath": ".venv/bin/python"
       }
     }
   },
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "forwardPorts": [7860, 8888],
-  "portsAttributes": {
-    "7860": { "label": "Gradio App", "onAutoForward": "openBrowser" }
-  },
   "remoteUser": "vscode"
 }
