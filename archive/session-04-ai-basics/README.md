@@ -3,25 +3,22 @@
 ## 🎯 학습 목표
 
 1. 생성형 AI(LLM)의 작동 원리를 직관적으로 이해한다
-2. 프롬프트 엔지니어링, 토큰화, 임베딩, Transformer/GPT 개념을 학습한다
-3. 노트북 실습을 통해 ChatGPT/GPT의 기본 원리를 체험한다
+2. Transformer, 토큰화, 프롬프트 엔지니어링 개념을 학습한다
+3. ChatGPT/GPT 활용 사례를 체험하고 토론한다
 
 ## 📊 강의 흐름
 
-| 순서 | 섹션 | 내용 |
+| 섹션 | 내용 | 시간 |
 |------|------|------|
-| 1 | AI 개요와 역사 | PPTX로 AI 역사 타임라인, 전통 AI vs 생성형 AI 비교 | 10분
-| 2 | 프롬프트 엔지니어링 | `prompt_engineering_guide.ipynb`로 역할, 목표, 맥락, 형식, 제약 실습 | 20분
-| 3 | 토크나이저 | `tokenizer_tutorial.ipynb`로 토큰화 방식과 토큰 ID 실습 | 30분
-| 4 | 임베딩 | `embedding_guide.ipynb`로 벡터화, 유사도, 미니 검색 엔진 실습 | 30분
-| 5 | MicroGPT | `microgpt-tutorial.ipynb`로 Transformer/GPT 구조와 학습·추론 실습 | 60분
+| AI란 무엇인가? | AI 역사 타임라인, 전통 AI vs 생성형 AI 비교 | 15분 |
+| LLM 작동 원리 | 토큰화 시연, Transformer 직관적 설명, Attention 메커니즘 | 30분 |
+| 프롬프트 엔지니어링 | Zero-shot, Few-shot, Chain-of-Thought, 역할 부여, 형식 지정 | 30분 |
+| 활용 사례 & 그룹 토론 | 텍스트 생성·요약·번역·코드 생성 데모, 모둠별 아이디어 발표 | 30분 |
+| 실습 & 과제 안내 | Azure OpenAI Playground 체험 | 15분 |
 
 ## 🛠️ 실습 파일
 
-- `prompt_engineering_guide.ipynb` — 프롬프트 엔지니어링 기법 실습
-- `tokenizer_tutorial.ipynb` — 토크나이저 개념과 코드 실습
-- `embedding_guide.ipynb` — 임베딩, 유사도, 미니 검색 엔진 실습
-- `microgpt-tutorial.ipynb` — MicroGPT로 Transformer/GPT 구조 이해
+- `practice.ipynb` — 토큰화 체험, 프롬프트 배틀, 기법 실전 연습
 
 ## 🔑 핵심 용어
 
